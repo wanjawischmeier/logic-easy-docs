@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "LogicEasy - Documentation",
   description: "Documentation for LogicEasy",
+  base: '/logic-easy/docs/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
