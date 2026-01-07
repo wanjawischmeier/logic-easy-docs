@@ -13,8 +13,11 @@ hero:
       text: Getting Started
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: Examples
       link: /api-examples
+    - theme: alt
+      text: Try It
+      link: /redirect-app
 
 features:
   - icon: 🛠️

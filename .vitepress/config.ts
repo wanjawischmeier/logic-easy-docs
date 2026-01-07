@@ -15,7 +15,8 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Try It', link: '/redirect-app' },
+      { text: 'Docs', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
     ],
 

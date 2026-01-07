@@ -24,6 +24,8 @@
   
   --vp-c-default-3: var(--color-surface-2);
   --vp-c-default-2: var(--color-surface-3);
+  --vp-c-gutter: var(--color-surface-2);
+  --vp-c-divider: var(--color-surface-2);
 
   --vp-c-bg: var(--color-surface-1);
   --vp-c-bg-alt: var(--color-elevated);
