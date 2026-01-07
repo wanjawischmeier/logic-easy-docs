@@ -1,25 +1,32 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "LogicEasy - Documentation"
   text: "Documentation for LogicEasy"
   tagline: My great project tagline
+  image:
+    src: /iti-logo.png
+    alt: VitePress
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Getting Started
       link: /markdown-examples
     - theme: alt
       text: API Examples
       link: /api-examples
 
 features:
-  - title: Feature A
+  - icon: 🛠️
+    title: Truth Tables
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /markdown-examples
-  - title: Feature B
+  - icon: 🛠️
+    title: State Machines
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+    link: /markdown-examples
+  - icon: 🛠️
+    title: Minimizer
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: /markdown-examples
 ---
