@@ -15,14 +15,7 @@ export default defineConfig({
     },
 
     nav: [
-      {
-        text: 'LogicEasy',
-        link: () => {
-          const path = window.location.pathname.replace(/\/docs(\/|$)/, '/');
-          return window.location.origin + path;
-        }
-      },
-      { text: 'Docs', link: '/' },
+      { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
     ],
 
