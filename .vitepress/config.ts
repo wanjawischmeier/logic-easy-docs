@@ -5,6 +5,10 @@ export default defineConfig({
   description: "Documentation for LogicEasy",
   base: '/logic-easy/docs/',
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
+
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
