@@ -26,7 +26,39 @@ export default defineConfig({
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
+        ],
+      },
+      {
+        text: 'Truth Tables',
+        link: '/truth-table',
+        items: [
+          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
+          { text: 'Runtime API Examples', link: '/api-examples' }
+        ],
+      },
+      {
+        text: 'Karnaugh-Veitch',
+        link: '/karnaugh-veitch',
+        items: [
+          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
+          { text: 'Runtime API Examples', link: '/api-examples' }
+        ],
+      },
+      {
+        text: 'Quine-McCluskey',
+        link: '/quine-mccluskey',
+        items: [
+          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
+          { text: 'Runtime API Examples', link: '/api-examples' }
+        ],
+      },
+      {
+        text: 'State Machine',
+        link: '/state-machine',
+        items: [
+          { text: 'Project creation', link: '/state-machine/project-creation' },
+          { text: 'Runtime API Examples', link: '/api-examples' }
+        ],
       }
     ],
 

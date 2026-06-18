@@ -6,7 +6,7 @@ hero:
   text: "Documentation for LogicEasy"
   tagline: My great project tagline
   image:
-    src: /iti-logo.png
+    src: /le_1024_iti.png
     alt: VitePress
   actions:
     - theme: brand
@@ -23,7 +23,7 @@ features:
   - icon: 🛠️
     title: Truth Tables
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /markdown-examples
+    link: /truth-table
   - icon: 🛠️
     title: State Machines
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
