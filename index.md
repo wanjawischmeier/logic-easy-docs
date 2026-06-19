@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Getting Started
-      link: /markdown-examples
+      link: /getting-started/
     - theme: alt
       text: Examples
       link: /api-examples
@@ -23,13 +23,13 @@ features:
   - icon: 🛠️
     title: Truth Tables
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /truth-table
+    link: /views/truth-table
   - icon: 🛠️
-    title: State Machines
+    title: Karnaugh-Veitch
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /markdown-examples
+    link: /views/karnaugh-veitch
   - icon: 🛠️
-    title: Minimizer
+    title: Quine McCluskey
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /markdown-examples
+    link: /views/quine-mccluskey/
 ---

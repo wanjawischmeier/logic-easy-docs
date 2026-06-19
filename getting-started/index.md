@@ -1,0 +1,1 @@
+Basic navigation (dragging/closing panels, closing project etc)

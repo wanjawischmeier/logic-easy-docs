@@ -16,48 +16,42 @@ export default defineConfig({
 
     nav: [
       { text: 'Try It', link: '/redirect-app' },
-      { text: 'Docs', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Getting Started', link: '/getting-started/' },
+      { text: 'Docs', link: '/' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Getting Started',
+        link: '/getting-started/',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Combinatorial Circuit', link: '/getting-started/combinatorial-circuit' },
+          { text: 'State Machine', link: '/getting-started/state-machine' }
         ],
       },
       {
-        text: 'Truth Tables',
-        link: '/truth-table',
+        text: 'Header',
+        link: '/header/',
         items: [
-          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Project', link: '/header/project' },
+          { text: 'View', link: '/header/view' },
+          { text: 'Export', link: '/header/export' }
         ],
       },
       {
-        text: 'Karnaugh-Veitch',
-        link: '/karnaugh-veitch',
+        text: 'Views',
+        link: '/views/',
         items: [
-          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ],
-      },
-      {
-        text: 'Quine-McCluskey',
-        link: '/quine-mccluskey',
-        items: [
-          { text: 'Project creation', link: '/combinatorial-circuit/project-creation' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ],
-      },
-      {
-        text: 'State Machine',
-        link: '/state-machine',
-        items: [
-          { text: 'Project creation', link: '/state-machine/project-creation' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Truth Table', link: '/views/truth-table' },
+          { text: 'Karnaugh-Veitch', link: '/views/karnaugh-veitch' },
+          {
+            text: 'Quine McCluskey',
+            link: '/views/quine-mccluskey/',
+            items: [
+              { text: 'Grouping Table', link: '/views/quine-mccluskey/grouping-table' },
+              { text: 'Prime Implicant Table', link: '/views/quine-mccluskey/prime-implicant-table' }
+            ]
+          }
         ],
       }
     ],
@@ -68,7 +62,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Evan You'
+      copyright: 'Copyright © 2019-present Evan You | <a href="https://github.com/wanjawischmeier/logic-easy" target="_blank" rel="noopener">GitHub</a>'
     }
   },
   vite: {
