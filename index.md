@@ -20,16 +20,32 @@ hero:
       link: /redirect-app
 
 features:
-  - icon: 🛠️
-    title: Truth Tables
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Truth Tables
+    icon:
+      src: /screenshots/truth-table/icon.png
+      alt: Truth Table
+    details: Edit truth tables directly and use search to perform targeted edits quickly.
     link: /views/truth-table
-  - icon: 🛠️
-    title: Karnaugh-Veitch
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Karnaugh-Veitch
+    icon:
+      src: /screenshots/karnaugh-veitch/icon.png
+      alt: Karnaugh-Veitch
+    details: Visualize the minimized form of your truth table on a KV diagram.
     link: /views/karnaugh-veitch
-  - icon: 🛠️
-    title: Quine McCluskey
+  - title: Quine McCluskey
+    icon:
+      src: /screenshots/quine-mccluskey/icon.png
+      alt: Quine McCluskey
+    details: View the grouping table with parent/merge paths on hover and the prime implicant table showing which minterms each prime implicant covers.
+    link: /views/quine-mccluskey/
+  - title: State Machines
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /views/quine-mccluskey/
+  - title: Logic Circuits
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: /views/quine-mccluskey/
+  - title: Export into various formats
+    icon: 📤
+    details: Export designs in multiple formats for seamless integration and documentation. Generate VHDL for hardware workflows, LogicCircuits files for simulation, LaTeX for technical documentation, or images for presentations and reports.
+    link: /header/export
 ---

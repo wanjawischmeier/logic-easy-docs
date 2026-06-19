@@ -32,3 +32,15 @@
   --vp-c-bg-elv: var(--color-surface-3);
   --vp-c-bg-soft: var(--color-surface-2);
 }
+
+#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(1) > a > article > img {
+  width: 240px;
+}
+
+#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(2) > a > article > img {
+  width: 200px;
+}
+
+#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(3) > a > article > img {
+  width: 312px;
+}
