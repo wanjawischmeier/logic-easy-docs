@@ -62,11 +62,11 @@ export default defineConfig({
                 text: 'Grouping Table',
                 link: '/views/quine-mccluskey/grouping-table',
                 items: [
-                  { text: 'Editing Output Values', link: '/views/truth-table#editing-output-values' },
-                  { text: 'Search Function', link: '/views/truth-table#search-function' },
-                  { text: 'Legend', link: '/views/truth-table#legend' },
-                  { text: 'Settings', link: '/views/truth-table#settings' },
-                  { text: 'Download Options', link: '/views/truth-table#download-options' }
+                  { text: 'Editing Output Values', link: '/views/quine-mccluskey#editing-output-values' },
+                  { text: 'Search Function', link: '/views/quine-mccluskey#search-function' },
+                  { text: 'Legend', link: '/views/quine-mccluskey#legend' },
+                  { text: 'Settings', link: '/views/quine-mccluskey#settings' },
+                  { text: 'Download Options', link: '/views/quine-mccluskey#download-options' }
                 ]
               },
               { text: 'Prime Implicant Table', link: '/views/quine-mccluskey/prime-implicant-table' }
