@@ -41,9 +41,9 @@ features:
   - title: State Machines
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /views/quine-mccluskey/
-  - title: Logic Circuits
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /views/quine-mccluskey/
+  - title: LogicCircuits
+    details: Readonly view of the LogicCircuits canvas with automatic rendering of the circuits
+    link: /views/logic-circuits/
   - title: Export into various formats
     icon: 📤
     details: Export designs in multiple formats for seamless integration and documentation. Generate VHDL for hardware workflows, LogicCircuits files for simulation, LaTeX for technical documentation, or images for presentations and reports.
