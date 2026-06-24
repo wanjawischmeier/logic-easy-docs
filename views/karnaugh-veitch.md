@@ -19,8 +19,10 @@ The KV-Diagram view displays:
 | <img src="/screenshots/karnaugh-veitch/el-groups.png" width="200"> | **Groups**: when minimization is active, the grouped cells are highlighted in different colors |
 | <img src="/screenshots/karnaugh-veitch/el-formula.png" width="200"> | **Formula**: the formula for the selected output variable, shown below the diagram |
 
-> [!TIP]
-> Grouping colors match those in the [QMC Grouping Table](./quine-mccluskey/grouping-table.md).
+::: tip
+![Side-by-side comparison linking Prime Implicant table bounds to the KV Diagram](/screenshots/quine-mccluskey/prime-implicants/kv_comp.png)
+Grouping colors match those in the [QMC Prime Implicants Table](./quine-mccluskey/prime-implicants.md). For details, see [here](./quine-mccluskey/prime-implicants.html#global-color-coding).
+:::
 
 ## Editing Output Values
 
