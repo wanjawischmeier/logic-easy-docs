@@ -1,5 +1,15 @@
 import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
+import markdownItKatex from 'markdown-it-katex'
+
+const customElements = [
+  'math', 'maction', 'maligngroup', 'malignmark', 'menclose', 'merror',
+  'mfenced', 'mfrac', 'mi', 'mlongdiv', 'mmultiscripts', 'mn', 'mo',
+  'mover', 'mpadded', 'mphantom', 'mroot', 'mrow', 'ms', 'mscarries',
+  'mscarry', 'msgroup', 'mstack', 'msline', 'msrow', 'mstyle', 'msub',
+  'msup', 'msubsup', 'mtable', 'mtd', 'mtr', 'munder', 'munderover',
+  'semantics', 'annotation', 'annotation-xml'
+]
 
 export default defineConfig({
   title: "LogicEasy",
@@ -44,32 +54,15 @@ export default defineConfig({
         items: [
           {
             text: 'Truth Table',
-            link: '/views/truth-table',
-            items: [
-              { text: 'Editing Output Values', link: '/views/truth-table#editing-output-values' },
-              { text: 'Search Function', link: '/views/truth-table#search-function' },
-              { text: 'Legend', link: '/views/truth-table#legend' },
-              { text: 'Settings', link: '/views/truth-table#settings' },
-              { text: 'Download Options', link: '/views/truth-table#download-options' }
-            ]
+            link: '/views/truth-table'
           },
           { text: 'Karnaugh-Veitch', link: '/views/karnaugh-veitch' },
           {
             text: 'Quine McCluskey',
             link: '/views/quine-mccluskey/',
             items: [
-              {
-                text: 'Grouping Table',
-                link: '/views/quine-mccluskey/grouping-table',
-                items: [
-                  { text: 'Editing Output Values', link: '/views/quine-mccluskey#editing-output-values' },
-                  { text: 'Search Function', link: '/views/quine-mccluskey#search-function' },
-                  { text: 'Legend', link: '/views/quine-mccluskey#legend' },
-                  { text: 'Settings', link: '/views/quine-mccluskey#settings' },
-                  { text: 'Download Options', link: '/views/quine-mccluskey#download-options' }
-                ]
-              },
-              { text: 'Prime Implicant Table', link: '/views/quine-mccluskey/prime-implicant-table' }
+              { text: 'Grouping Table', link: '/views/quine-mccluskey/grouping-table' },
+              { text: 'Prime Implicants', link: '/views/quine-mccluskey/prime-implicants' }
             ]
           }
         ],
@@ -89,5 +82,17 @@ export default defineConfig({
     plugins: [
       tailwindcss(),
     ],
+  },
+  markdown: {
+    config: (md) => {
+      md.use(markdownItKatex)
+    }
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => customElements.includes(tag)
+      }
+    }
   }
 })
