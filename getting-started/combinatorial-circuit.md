@@ -38,7 +38,6 @@ By default, projects initialize with **4 input variables** and **2 output variab
 ::: info
 Up to **5 characters** per variable name are supported.
 :::
-
 ---
 
 ## The Global Settings Menu
@@ -67,3 +66,14 @@ Determines the algebraic optimization approach used to evaluate your boolean tru
 Switches the operational logic state between two distinct structural visibility options:
 * **Normal**: Displays the raw, unaltered truth table state or full canonical boolean expression.
 * **Minimal**: Displays the optimized, reduced version of your boolean logic structure.
+
+### Variation Selection
+
+Unlike general configurations, the **Variation Selection** control is not housed inside the global settings gear menu. Instead, it appears contextually directly within the workspace workspace panels - such as right next to a minimized formula - whenever it becomes relevant.
+
+![Variation selection dropdown menu](/screenshots/combinatorial-circuit/settings_variation.png)
+
+In boolean optimization, a single truth table can sometimes yield multiple distinct, yet equally optimal, minimized expressions. This can happen due to overlapping prime implicants or flexible "don't care" conditions.
+
+* **Dropdown Indices**: Clicking the variation button opens a clean dropdown listing all mathematically valid minimal solutions by index. Selecting a different index instantly updates the displayed formula.
+* **Global Synchronization**: Like core settings, your selected variation index is globally synchronized. Choosing a variation while looking at a minimized formula will for example automatically update the corresponding highlights in the KV Diagram view.

@@ -26,7 +26,7 @@ The grid cells are populated with the following symbols to identify which terms 
 | :---: | :--- | :--- |
 | $\times$ | **Covered Minterm** | Indicates that the respective prime implicant covers this minterm from the truth table. |
 | $\oplus$ | **Essential Minterm** | Identifies a critical minterm that can only be covered by *one* single prime implicant. This forces that specific prime implicant to be part of the final minimized function. |
-| <span style="border: 2px dashed #dc2626; padding: 2px 6px; border-radius: 0.375rem;"> </span> | **Essential Prime Implicant Bounds** | A dashed visual bounding box highlighting all minterms already satisfied by a selected essential prime implicant. Minterms within these bounds no longer need to be considered for further coverage. |
+| <span style="border: 2px solid #dc2626; padding: 2px 6px; border-radius: 0.375rem; background-color: rgba(220, 38, 38, 0.2);"></span> | **Essential Prime Implicant Bounds** | A visual bounding box highlighting all minterms already satisfied by a selected essential prime implicant. Minterms within these bounds no longer need to be considered for further coverage. |
 
 ## Global Color Coding
 
@@ -45,5 +45,6 @@ Shows you a summarized version of this page inside the program, in case you need
 
 ![Prime implicants settings panel](/screenshots/quine-mccluskey/prime-implicants/settings.png)
 
+- **Highlights enabled**: Whether essential prime implicant bounds and their respective terms should be color-coded.
 - [Output Variable](../../getting-started/combinatorial-circuit.md#output-variable)
 - [Function Type](../../getting-started/combinatorial-circuit.md#function-type)
