@@ -13,9 +13,6 @@ hero:
       text: Getting Started
       link: /getting-started/
     - theme: alt
-      text: Examples
-      link: /api-examples
-    - theme: alt
       text: Try It
       link: /redirect-app
 
@@ -44,6 +41,9 @@ features:
   - title: LogicCircuits
     details: Readonly view of the LogicCircuits canvas with automatic rendering of the circuits
     link: /views/logic-circuits/
+    icon:
+      src: /screenshots/logic-circuits/icon.png
+      alt: Quine McCluskey
   - title: Export into various formats
     icon: 📤
     details: Export designs in multiple formats for seamless integration and documentation. Generate VHDL for hardware workflows, LogicCircuits files for simulation, LaTeX for technical documentation, or images for presentations and reports.
