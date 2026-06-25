@@ -5,7 +5,7 @@ outline: deep
 
 # LogicCircuits
 
-This view integrates a read-only view of LogicCircuits. The purpose is solely the immediate visualization of the formulas or state machines as circuits. 
+This view integrates a read-only view of [LogicCircuits](https://www.iti.uni-luebeck.de/fileadmin/Lehre/TGI/Tools/LogicCircuits/index.html). The purpose is solely the immediate visualization of the formulas or state machines as circuits. 
 
 ![LogicCircuits canvas showing a minimized combinatorial circuit with four input variables, and two output variables](/screenshots/logic-circuits/circuit.png)
 

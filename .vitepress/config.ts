@@ -25,9 +25,7 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'Try It', link: '/redirect-app' },
-      { text: 'Getting Started', link: '/getting-started/' },
-      { text: 'Docs', link: '/' }
+      { text: 'Try It', link: 'https://wanjawischmeier.github.io/logic-easy/' }
     ],
 
     sidebar: [
@@ -64,7 +62,8 @@ export default defineConfig({
               { text: 'Grouping Table', link: '/views/quine-mccluskey/grouping-table' },
               { text: 'Prime Implicants', link: '/views/quine-mccluskey/prime-implicants' }
             ]
-          }
+          },
+          { text: 'LogicCircuits', link: '/views/logic-circuits' },
         ],
       }
     ],

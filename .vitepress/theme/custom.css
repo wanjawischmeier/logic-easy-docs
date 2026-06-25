@@ -44,3 +44,7 @@
 #VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(3) > a > article > img {
   width: 312px;
 }
+
+#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(5) > a > article > img {
+  width: 240px;
+}
