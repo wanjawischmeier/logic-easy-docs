@@ -64,7 +64,8 @@ export default defineConfig({
               { text: 'Grouping Table', link: '/views/quine-mccluskey/grouping-table' },
               { text: 'Prime Implicants', link: '/views/quine-mccluskey/prime-implicants' }
             ]
-          }
+          },
+          { text: 'LogicCircuits', link: '/views/logic-circuits' },
         ],
       }
     ],
