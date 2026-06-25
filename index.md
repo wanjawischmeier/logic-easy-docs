@@ -14,7 +14,7 @@ hero:
       link: /getting-started/
     - theme: alt
       text: Try It
-      link: https://wanjawischmeier.github.io/logic-easy/'
+      link: https://wanjawischmeier.github.io/logic-easy/
 
 features:
   - title: Truth Tables
