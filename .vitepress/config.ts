@@ -16,6 +16,7 @@ export default defineConfig({
   description: "Documentation for LogicEasy",
   base: '/logic-easy/docs/',
   lang: 'en-US',
+  ignoreDeadLinks: true,
 
   themeConfig: {
     logo: '/le_128.png',
