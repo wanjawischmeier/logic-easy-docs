@@ -48,12 +48,8 @@ export default defineConfig({
       },
       {
         text: 'Views',
-        link: '/views/',
         items: [
-          {
-            text: 'Truth Table',
-            link: '/views/truth-table'
-          },
+          { text: 'Truth Table', link: '/views/truth-table' },
           { text: 'Karnaugh-Veitch', link: '/views/karnaugh-veitch' },
           {
             text: 'Quine McCluskey',

@@ -9,7 +9,7 @@ head:
 
 # Grouping Table
 
-The Grouping Table view displays the initial stage of the Quine-McCluskey minimization process, where minterms are organized by the number of active inputs (ones) and systematically merged.
+The Grouping Table view displays the initial stage of the Quine-McCluskey minimization process, where minterms are organized by the number of active inputs and systematically merged.
 
 ![Grouping table view overview](/screenshots/quine-mccluskey/grouping-table/overview.png)
 
