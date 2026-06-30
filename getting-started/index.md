@@ -50,9 +50,9 @@ New projects can be created at any time with the same options via the [Header](/
 
 Your 5 most recently opened projects are shown here, the most recent first. Older projects are **discarded**!
 
-If you want to keep projects permanently, you have to **[export](/header/export.md)** them.
+If you want to keep projects permanently, you have to **[save](/header/project)** them to your PC.
 
-Projects saved on your PC can also be **[imported](/header/project.md#project-dropdown)** back into LogicEasy.
+You can then **[open](/header/project)** projects saved on disk at a later time.
 
 To **rename** an open project, click on its current name in the top right corner.
 
