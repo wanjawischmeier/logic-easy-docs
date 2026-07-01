@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "LogicEasy - Documentation"
-  text: "Documentation for LogicEasy"
-  tagline: My great project tagline
+  name: "Documentation"
+  text: "for LogicEasy"
+  tagline: Disrupting Truth Tables Since 2026
   image:
     src: /le_1024_iti.png
     alt: VitePress
