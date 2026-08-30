@@ -20,8 +20,6 @@ The FSM Editor legend summarizes the visual elements and the tools.
 | Remove      | Click a state or transition to delete it      | `Alt+R`  |
 | Connect     | Drag between states to create a transition    | —        |
 | Auto Layout | Automatically rearrange the graph             | `Alt+A`  |
-| Undo        | Revert the most recent change                 | `Alt+Z`  |
-| Redo        | Restore the most recently undone change       | `Alt+Y`  |
 
 ## Creating a Transition
 
@@ -49,11 +47,11 @@ The automaton is validated continuously while you work. As soon as it becomes in
 
 The following rules make an automaton invalid:
 
-1. **The next state must exist.** Every transition must reference an existing state as its next state. A transition whose next-state pattern matches no existing state, or which points to a state that has been removed, is invalid.
-2. **In Moore mode, a transition's target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry the same output bits. Conflicting outputs make the automaton invalid.
+1. **The next state must exist.** Every transition must reference an existing state as its next state. A transition whose next-state pattern matches no existing state, or which points to a state that has been removed, is invalid. An all-don't-care next state is an unassigned placeholder and is always valid.
+2. **In Moore mode, a transition's target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry the same output bits. Conflicting outputs make the automaton invalid. An all-don't-care next state targets nothing, so it never causes such a conflict.
 
 ::: tip
-Because a single transition row can use don't-cares to cover multiple input combinations or target multiple states, it is easy to accidentally create a row that resolves to no state or to states with conflicting outputs. The lock prevents you from working with a machine that cannot be rendered meaningfully.
+Every editable cell in the [State Table](./state-table.md) can always be toggled freely in the order `0 → 1 → - → 0`. The automaton is re-validated after every change, and the FSM Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
 :::
 
 ---
