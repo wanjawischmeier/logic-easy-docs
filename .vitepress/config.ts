@@ -61,6 +61,8 @@ export default defineConfig({
             ]
           },
           { text: 'LogicCircuits', link: '/views/logic-circuits' },
+          { text: 'State Table', link: '/views/state-table' },
+          { text: 'FSM Editor', link: '/views/fsm-editor' },
         ],
       }
     ],
