@@ -60,9 +60,14 @@ export default defineConfig({
               { text: 'Prime Implicants', link: '/views/quine-mccluskey/prime-implicants' }
             ]
           },
+          {
+            text: 'State Machine',
+            items: [
+              { text: 'Tables', link: '/views/state-machine/tables' },
+              { text: 'Editor', link: '/views/state-machine/editor' },
+            ]
+          },
           { text: 'LogicCircuits', link: '/views/logic-circuits' },
-          { text: 'State Table', link: '/views/state-table' },
-          { text: 'FSM Editor', link: '/views/fsm-editor' },
         ],
       }
     ],

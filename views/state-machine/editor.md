@@ -1,17 +1,17 @@
 ---
-title: FSM Editor
+title: Editor
 outline: deep
 ---
 
-# FSM Editor
+# Editor
 
-The FSM Editor is the visual canvas for drawing the state machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
+The State Machine Editor is the visual canvas for drawing the state machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
 
-![FSM Editor canvas with states and transitions](/screenshots/state-machine/fsm-engine.png)
+![Editor canvas with states and transitions](/screenshots/state-machine/editor.png)
 
 ## Tools
 
-The FSM Editor legend summarizes the visual elements and the tools.
+The Editor legend summarizes the visual elements and the tools.
 
 | Tool        | Purpose                                       | Shortcut |
 | ----------- | --------------------------------------------- | -------- |
@@ -43,7 +43,7 @@ A transition whose input, next state, and (in Mealy mode) output are **all** don
 
 ## Validation
 
-The automaton is validated continuously while you work. As soon as it becomes invalid, the FSM Editor is **locked**: a full-screen **"Automaton Invalid"** overlay covers the canvas, all editor tools and shortcuts are disabled, and states can no longer be dragged or edited. The overlay shows the precise reason for the invalidity; fix the reported issue in the [State Table](./state-table.md) to unlock the editor.
+The automaton is validated continuously while you work. As soon as it becomes invalid, the Editor is **locked**: a full-screen **"Automaton Invalid"** overlay covers the canvas, all editor tools and shortcuts are disabled, and states can no longer be dragged or edited. The overlay shows the precise reason for the invalidity; fix the reported issue in the [State Table](./state-table.md) to unlock the editor.
 
 The following rules make an automaton invalid:
 
@@ -51,7 +51,7 @@ The following rules make an automaton invalid:
 2. **In Moore mode, a transition's target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry the same output bits. Conflicting outputs make the automaton invalid. An all-don't-care next state targets nothing, so it never causes such a conflict.
 
 ::: tip
-Every editable cell in the [State Table](./state-table.md) can always be toggled freely in the order `0 → 1 → - → 0`. The automaton is re-validated after every change, and the FSM Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
+Every editable cell in the [State Table](./state-table.md) can always be toggled freely in the order `0 → 1 → - → 0`. The automaton is re-validated after every change, and the Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
 :::
 
 ---

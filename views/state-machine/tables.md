@@ -1,5 +1,5 @@
 ---
-title: State Table
+title: Tables
 outline: deep
 head:
   - - link
@@ -11,7 +11,7 @@ head:
 
 The State Table is the textual representation of the state machine and the primary place to correct invalid data. It lists every state with its **name** and **binary index**, and every transition with its input, next state, and output.
 
-![State Table overview with states and transitions](/screenshots/state-machine/state-table-panel.png)
+![State Table overview with states and transitions](/screenshots/state-machine/tables.png)
 
 ## States
 
