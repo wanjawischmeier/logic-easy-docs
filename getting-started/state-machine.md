@@ -61,11 +61,11 @@ The chosen model determines where the output lives: in **Mealy** mode the output
 
 After creation, a State Machine project opens with two panels side by side: the [State Table](../views/state-table.md) and the [FSM Editor](../views/fsm-editor.md).
 
-![State Table panel with states and transitions](/screenshots/state-machine/state-table-panel.png)
+![State Table panel with states and transitions](/screenshots/state-machine/tables.png)
 
 The [State Table](../views/state-table.md) is the textual representation of the machine. It lists every state with its name and binary index, and every transition with its input, next state, and output. It is the primary place to correct invalid data.
 
-![FSM Editor canvas with states and transitions](/screenshots/state-machine/fsm-engine.png)
+![FSM Editor canvas with states and transitions](/screenshots/state-machine/editor.png)
 
 The [FSM Editor](../views/fsm-editor.md) is the visual canvas for drawing the machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
 
