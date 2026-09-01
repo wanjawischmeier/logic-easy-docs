@@ -32,8 +32,11 @@ The header provides utility tools for the whole application.
     ![header help dropdown](/screenshots/header/help.png)
 
 
----
+- **Project information** <br>
+    The right side of the header shows the opened project. The project can be closed by clicking on the cross, or renamed, by clicking on the current projectname, and typing the new name. 
 
-The right side of the header shows the opened project. It can be closed by clicking on the cross.
+    ![right side of LogicEasy header](/screenshots/header/right.png)
 
-![right side of LogicEasy header](/screenshots/header/right.png)
+- **Light/Dark mode switcher** <br>
+     To the right of the tab, there is a button to switch between dark mode (default) and light mode by clicking on the sun icon.
+    ![light/dark mode toggle button](/screenshots/header/theme-button.png)
