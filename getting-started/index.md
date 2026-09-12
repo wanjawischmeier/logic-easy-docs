@@ -31,7 +31,7 @@ Available layouts:
 | Combinatorial Circuit | Truth Table | [Truth-Table](/views/truth-table.md) and [KV](/views/karnaugh-veitch.md) |
 | Combinatorial Circuit | Karnaugh-Veitch | [Truth-Table](/views/truth-table.md) and [KV](/views/karnaugh-veitch.md) |
 | Combinatorial Circuit | Quine-McCluskey | [KV](/views/karnaugh-veitch.md) and [QMC](/views/quine-mccluskey/) |
-| State Machine | State Machine | [State Table](/views/state-table.md) and [FSM Editor](/views/fsm-editor.md) |
+| State Machine | State Machine | [State Table](/views/state-machine/tables.md) and [FSM Editor](/views/state-machine/editor.md) |
 
 The creation process differs depending on the selected project type.
 

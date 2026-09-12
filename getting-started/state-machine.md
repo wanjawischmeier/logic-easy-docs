@@ -9,7 +9,7 @@ head:
 
 # Getting Started with State Machines
 
-This guide introduces the core steps for creating and working with State Machine (FSM) projects in LogicEasy. It covers the [project creation](#project-creation) and the underlying [state machine model](#the-state-machine-model). The two panels of a State Machine project - the [State Table](../views/state-table.md) and the [FSM Editor](../views/fsm-editor.md) - are documented in their own view articles.
+This guide introduces the core steps for creating and working with State Machine (FSM) projects in LogicEasy. It covers the [project creation](#project-creation) and the underlying [state machine model](#the-state-machine-model). The two panels of a State Machine project - the [State Table](../views/state-machine/tables.md) and the [FSM Editor](../views/state-machine/editor.md) - are documented in their own view articles.
 
 ## Project Creation
 
@@ -29,8 +29,8 @@ Project names do not need to be unique. If you create multiple projects with the
 
 Choose between the two common FSM models:
 
-* **Mealy**: The output depends on the current state and the input. Output bits are stored on each individual transition.
-* **Moore**: The output depends only on the current state (the 'next' state of a transition). Output bits are stored on the states themselves, and transitions only describe the input and the next state.
+- **Mealy**: The output depends on the current state and the input. Output bits are stored on each individual transition.
+- **Moore**: The output depends only on the current state (the 'next' state of a transition). Output bits are stored on the states themselves, and transitions only describe the input and the next state.
 
 ### 3. Input and Output Bits
 
@@ -46,10 +46,10 @@ The number of input and output bits cannot be changed after the project has been
 
 A finite state machine consists of **states** and the **transitions** between them.
 
-* Each state has a **name** (new states are named `q0`, `q1`, ... as default) and a **binary index** that encodes its position (for example `0`, `1`, ...).
-* The **initial state** is the state the machine starts in. The first state added becomes the initial state, and it is marked with an incoming arrow in the editor.
-* A **transition** describes what happens for a given input combination: it connects a source state to a next state and optionally carries an output.
-* **Input** and **output** values are bit patterns. Every bit is either `0`, `1`, or a don't-care value `x` (displayed as `-`). A don't-care matches both `0` and `1`, so a single transition row can cover several input combinations or target several states.
+- Each state has a **name** (new states are named `q0`, `q1`, ... as default) and a **binary index** that encodes its position (for example `0`, `1`, ...).
+- The **initial state** is the state the machine starts in. The first state added becomes the initial state, and it is marked with an incoming arrow in the editor.
+- A **transition** describes what happens for a given input combination: it connects a source state to a next state and optionally carries an output.
+- **Input** and **output** values are bit patterns. Every bit is either `0`, `1`, or a don't-care value `x` (displayed as `-`). A don't-care matches both `0` and `1`, so a single transition row can cover several input combinations or target several states.
 
 ### Mealy vs Moore in practice
 
@@ -59,16 +59,16 @@ The chosen model determines where the output lives: in **Mealy** mode the output
 
 ## The Panels
 
-After creation, a State Machine project opens with two panels side by side: the [State Table](../views/state-table.md) and the [FSM Editor](../views/fsm-editor.md).
+After creation, a State Machine project opens with two panels side by side: the [State Table](../views/state-machine/tables.md) and the [FSM Editor](../views/state-machine/editor.md).
 
 ![State Table panel with states and transitions](/screenshots/state-machine/tables.png)
 
-The [State Table](../views/state-table.md) is the textual representation of the machine. It lists every state with its name and binary index, and every transition with its input, next state, and output. It is the primary place to correct invalid data.
+The [State Table](../views/state-machine/tables.md) is the textual representation of the machine. It lists every state with its name and binary index, and every transition with its input, next state, and output. It is the primary place to correct invalid data.
 
 ![FSM Editor canvas with states and transitions](/screenshots/state-machine/editor.png)
 
-The [FSM Editor](../views/fsm-editor.md) is the visual canvas for drawing the machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
+The [FSM Editor](../views/state-machine/editor.md) is the visual canvas for drawing the machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
 
 ::: tip
-The automaton is validated continuously while you work. As soon as it becomes invalid, the FSM Editor locks and shows an "Automaton Invalid" overlay. See the [FSM Editor view](../views/fsm-editor.md#validation) for the validation rules.
+The automaton is validated continuously while you work. As soon as it becomes invalid, the editor is replaced by an "Automaton Invalid" view until the State Table is corrected. See the [State Table validation rules](../views/state-machine/tables.md#validation) and the [FSM Editor validation rules](../views/state-machine/editor.md#validation) for details about wildcard next states, hidden transitions, Moore outputs, and NFA-style clusters.
 :::
