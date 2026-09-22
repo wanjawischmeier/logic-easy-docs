@@ -69,6 +69,8 @@ The [State Table](../views/state-machine/tables.md) is the textual representatio
 
 The [FSM Editor](../views/state-machine/editor.md) is the visual canvas for drawing the machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
 
+A state machine also defines switching functions, so the minimization views can be used with it as well. The [Karnaugh-Veitch](../views/karnaugh-veitch.md) diagram minimises the machine's next-state functions and output functions over the current-state bits $Z^n$ and the input bits $X^n$. It is available from **View ▸ Minimization** and opens next to the State Table and the FSM Editor.
+
 ::: tip
-The automaton is validated continuously while you work. As soon as it becomes invalid, the editor is replaced by an "Automaton Invalid" view until the State Table is corrected. See the [State Table validation rules](../views/state-machine/tables.md#validation) and the [FSM Editor validation rules](../views/state-machine/editor.md#validation) for details about wildcard next states, hidden transitions, Moore outputs, and NFA-style clusters.
+The automaton is validated continuously while you work. As soon as it becomes invalid, the editor is replaced by an "Automaton Invalid" view until the State Table is corrected. See the [State Table validation rules](../views/state-machine/tables.md#validation) and the [FSM Editor validation rules](../views/state-machine/editor.md#validation) for details about next states with don't-cares, hidden transitions, Moore outputs, and NFA-style clusters. Next states that are all don't-cares are _unassigned_ rather than invalid, and while the number of states is not a power of two the State Table reports them with a warning instead of locking the editor.
 :::

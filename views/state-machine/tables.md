@@ -33,7 +33,7 @@ The transition table is only revealed once at least one state exists.
 
 The transitions table lists every transition with the columns **first state** $Z^n$, **input** $X^n$, **next state** $Z^{(n+1)}$, and **output** $Y^n$. The first-state and input columns are read-only; the next-state and output cells are editable.
 
-Clicking an editable cell cycles its bit value in the order `0 → 1 → - → 0`. A fully concrete next-state pattern resolves to the state with that binary index. A pattern containing don't-cares (`-`) represents a cluster of concrete target IDs: every combination produced by replacing `-` with `0` and `1` must exist as a state. For example, `1-` requires both `10` and `11`.
+Clicking an editable cell cycles its bit value in the order `0 → 1 → - → 0`. A fully concrete next-state pattern resolves to the state with that binary index. A _partial_ pattern containing don't-cares (`-`) represents a cluster of concrete target IDs: every combination produced by replacing `-` with `0` and `1` must exist as a state. For example, `1-` requires both `10` and `11`. A pattern that is **all** don't-cares is unassigned instead — see [Validation](#validation).
 
 | Column                     | Description                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -42,14 +42,16 @@ Clicking an editable cell cycles its bit value in the order `0 → 1 → - → 0
 | **Next state** $Z^{(n+1)}$ | The target state pattern; editable.                                                            |
 | **Output** $Y^n$           | The output produced by the transition (Mealy) or stored on the target state (Moore); editable. |
 
-In **Mealy** mode the output column edits the output of the transition itself. In **Moore** mode it edits the output stored on the target state when the transition has exactly one resolved target. A Moore transition resolving to several states displays their common output only when their output bits are compatible; conflicting outputs make the FSM invalid.
+In **Mealy** mode the output column edits the output of the transition itself. In **Moore** mode it edits the output stored on the target state when the transition has exactly one resolved target. A Moore transition resolving to several states displays their common output only when their output bits are compatible; conflicting outputs make the FSM invalid. Unassigned (all-don't-care) next states are excluded here, because they are not real targets.
 
 ## Validation
 
-The table is the source of truth for the FSM. It is checked after every table change. If a next-state pattern contains don't-cares, all of its concrete combinations must be present as state IDs. With `n` state bits, a pattern containing `k` don't-care bits covers $2^k$ combinations. Therefore, an all-don't-care pattern such as `--` covers all $2^n$ possible IDs and is valid only when the FSM contains all corresponding states. If any required combination is missing, the editor is replaced by an **"Automaton Invalid"** view with a reason that identifies the pattern. Correct the table to restore the editor.
+The table is the source of truth for the FSM. It is checked after every table change. If a partially concrete next-state pattern contains don't-cares, all of its concrete combinations must be present as state IDs. With `n` state bits, a pattern containing `k` don't-care bits covers $2^k$ combinations. If any combination a partial pattern covers is missing, the editor is replaced by an **"Automaton Invalid"** view with a reason that identifies the pattern. Correct the table to restore the editor.
+
+A next state that is **all** don't-cares (`--`) is treated as _unassigned_ and never makes the automaton invalid. While the number of states is not a power of two, such a pattern also expands to indexes that no state uses yet — the transitions table then shows an amber **"Unassigned next states cover …"** warning instead of locking the editor. Whether the transition is additionally hidden in the editor depends on its output, see [hidden don't-care transitions](./editor.md#hidden-dont-care-transitions).
 
 ::: info
-Wildcard clusters are useful for NFA-style behavior: a pattern may target several states, but it is valid only when every concrete state covered by the pattern exists. A pattern such as `0-` is therefore valid with targets `00` and `01`, but invalid if either target is missing.
+Clusters of don't-cares are useful for NFA-style behavior: a partial pattern may target several states, but it is valid only when every concrete state covered by the pattern exists. A pattern such as `0-` is therefore valid with targets `00` and `01`, but invalid if either target is missing.
 :::
 
 ![Transitions table with editable next state and output cells](/screenshots/state-machine/transitions-table.png)
