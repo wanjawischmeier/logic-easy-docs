@@ -46,8 +46,8 @@ The number of input and output bits cannot be changed after the project has been
 
 A finite state machine consists of **states** and the **transitions** between them.
 
-- Each state has a **name** (new states are named `q0`, `q1`, ... as default) and a **binary index** that encodes its position (for example `0`, `1`, ...).
-- The **initial state** is the state the machine starts in. The first state added becomes the initial state, and it is marked with an incoming arrow in the editor.
+- Each state has a **name** (new states are named `q0`, `q1`, ... by default) and a **binary index** (e.g., `00`, `01`, ...). State names can be changed, but they must be unique and are limited to 12 characters. Their binary indices are generated automatically by the system and cannot be changed. Keep this in mind when creating an FSM, as changing the structure later may require additional tedious and complicated work.
+- The **initial state** is the state the machine starts in. It is optional: it is marked with an incoming arrow in the editor and can be set in the state options. Without an initial state no arrow is drawn.
 - A **transition** describes what happens for a given input combination: it connects a source state to a next state and optionally carries an output.
 - **Input** and **output** values are bit patterns. Every bit is either `0`, `1`, or a don't-care value `x` (displayed as `-`). A don't-care matches both `0` and `1`, so a single transition row can cover several input combinations or target several states.
 
@@ -72,5 +72,5 @@ The [FSM Editor](../views/state-machine/editor.md) is the visual canvas for draw
 A state machine also defines switching functions, so the minimization views can be used with it as well. The [Karnaugh-Veitch](../views/karnaugh-veitch.md) diagram minimises the machine's next-state functions and output functions over the current-state bits $Z^n$ and the input bits $X^n$. It is available from **View ▸ Minimization** and opens next to the State Table and the FSM Editor.
 
 ::: tip
-The automaton is validated continuously while you work. As soon as it becomes invalid, the editor is replaced by an "Automaton Invalid" view until the State Table is corrected. See the [State Table validation rules](../views/state-machine/tables.md#validation) and the [FSM Editor validation rules](../views/state-machine/editor.md#validation) for details about next states with don't-cares, hidden transitions, Moore outputs, and NFA-style clusters. Next states that are all don't-cares are unassigned rather than invalid, and while the number of states is not a power of two the State Table reports them with a warning instead of locking the editor.
+The automaton is validated continuously while you work. As soon as it becomes invalid, the editor is replaced by an "Automaton Invalid" view until the State Table is corrected. See the [State Table validation rules](../views/state-machine/tables.md#validation) and the [FSM Editor validation rules](../views/state-machine/editor.md#validation) for details about next states with don't-cares, hidden transitions, Moore outputs, and NFA-style clusters. Next states that are all don't-cares allow every next state and never make the automaton invalid, and while the number of states is not a power of two the State Table reports the additionally covered indexes with a warning instead of locking the editor.
 :::
