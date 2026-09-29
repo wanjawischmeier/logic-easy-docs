@@ -35,7 +35,7 @@ Each input pattern can only be used once per state, because the [State Table](./
 2. **The row is a don't-care row** (all of its next-state cells are `-`, so every next state is allowed): such rows are not drawn in the editor (see [Hidden don't-care transitions](#hidden-dont-care-transitions)). Drawing the transition for exactly this state and input replaces the don't-care row: the State Table then stores the concrete next state, and the row's previous output is replaced by the new one (a short note reports it if the row already had an output).
 3. **The targets do not fit one pattern**: every don't-care pattern would also cover states in between, so the two next states would silently become targets as well. The popup shows which states a pattern would add and does not let you save. The State Table stores one next state per state and input, so it cannot display this configuration - use a don't-care cluster inside the [State Table](./tables.md), or add the states in an order that puts the targets next to each other, because the binary index follows the creation order.
 
-This works the same in Mealy and Moore mode. In Moore mode the combined targets must also agree on their output bits; conflicting outputs would make the automaton invalid, so the popup keeps the transition blocked. In Mealy mode the row keeps its own output: an output that already contains don't-cares stays unchanged when the new transition fits it, while a different output blocks the save, because one row carries one output.
+This works the same in Mealy and Moore mode. In Moore mode the combined targets must also agree on their output bits; conflicting outputs would make the FSM invalid, so the popup keeps the transition blocked. In Mealy mode the row keeps its own output: an output that already contains don't-cares stays unchanged when the new transition fits it, while a different output blocks the save, because one row carries one output.
 
 ## State Labels
 
@@ -55,17 +55,17 @@ Drawing a transition for exactly the same state and input **replaces** that don'
 
 ## Validation of the state machine
 
-The automaton is validated continuously while you work. As soon as it becomes invalid, the Editor is replaced by an **"Automaton Invalid"** view. The editor is not synchronized or editable while this view is shown. It displays the precise reason for the invalidity; fix the reported issue in the [State Table](./tables.md) to show the editor again.
+The FSM is validated continuously while you work. As soon as it becomes invalid, the Editor is replaced by an **"FSM Invalid"** view. The editor is not synchronized or editable while this view is shown. It displays the precise reason for the invalidity; fix the reported issue in the [State Table](./tables.md) to show the editor again.
 
-The following rules make an automaton invalid:
+The following rules make an FSM invalid:
 
 1. **Every concrete next-state combination must exist.** A concrete next state must point to an existing state. A pattern containing don't-cares is expanded into every possible `0`/`1` combination, and **all** of those combinations must be used by existing state IDs. For example, `1-` expands to `10` and `11`; it is valid only when both states exist. A missing combination, a removed target, or an empty target is invalid.
 2. **All-don't-care next states never lock the editor.** A next state that is **all** don't-cares (`--`) allows every next state and is ignored by the validation. While the number of states is not a power of two, such a pattern also covers indexes that no state uses yet; the [State Table](./tables.md) then shows an amber **"Don't-care next states also cover …"** warning instead of locking the editor.
 3. **Don't care statements as next states can represent multiple target states.** A pattern such as `0-` is valid when every concrete combination it covers exists. This supports NFA-style transitions to multiple states without treating the cluster itself as an error. Such a partial cluster stays visible in the editor (one arrow per covered state); only a next state that is **all** don't-cares is not drawn, see [hidden don't-care transitions](#hidden-dont-care-transitions).
-4. **In Moore mode, all resolved target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry compatible output bits. Conflicting `0` and `1` values make the automaton invalid. Transitions with an all-don't-care next state are excluded, because they do not resolve to a single target.
+4. **In Moore mode, all resolved target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry compatible output bits. Conflicting `0` and `1` values make the FSM invalid. Transitions with an all-don't-care next state are excluded, because they do not resolve to a single target.
 
 ::: tip
-Every editable cell in the [State Table](./tables.md) can always be toggled freely in the order `0 → 1 → - → 0`. The automaton is re-validated after every change, and the Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
+Every editable cell in the [State Table](./tables.md) can always be toggled freely in the order `0 → 1 → - → 0`. The FSM is re-validated after every change, and the Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
 :::
 
 ---
