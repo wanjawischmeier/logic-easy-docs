@@ -41,7 +41,7 @@ This works the same in Mealy and Moore mode. In Moore mode the combined targets 
 
 Each circle shows the **state name**; in Moore mode it additionally shows the state's output bits (`name / output`). The initial state is marked with an incoming arrow, and you can drag the arrow's tail handle onto another state to make that state the initial one. The initial state is optional - if no state is marked as initial, no arrow is drawn.
 
-Click a state in **Move** or **Add** mode to open its options: you can edit the state's name and color and mark it as the initial state. In Moore mode you can also edit the state's output bits. Press `Enter` to apply the changes or `Escape` to discard them. Names support up to 12 characters, are limited to letters, digits, spaces, `_` and `-`, and must be unique - a duplicate name is rejected and the popup cannot be safed in this case.
+Click a state in **Move** or **Add** mode to open its options: you can edit the state's name and color and mark it as the initial state. In Moore mode you can also edit the state's output bits. Press `Enter` to apply the changes or `Escape` to discard them. Names support up to 12 characters, are limited to letters, digits, spaces, `_` and `-`, and must be unique - a duplicate name is rejected and the popup cannot be saved in this case.
 
 ![State options popup for editing a state](/screenshots/state-machine/state-options.png)
 
