@@ -5,13 +5,13 @@ outline: deep
 
 # Editor
 
-The State Machine Editor is the visual canvas for drawing the state machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools.
+The State Machine Editor is the visual canvas for drawing the state machine. States are drawn as circles, transitions as directed arrows, and a toolbar at the bottom provides the tools. It shows the same machine as the [State Table](./tables.md) and stays synchronized with it.
 
 ![Editor canvas with states and transitions](/screenshots/state-machine/editor.png)
 
 ## Tools
 
-The Editor legend summarizes the visual elements and the tools.
+The toolbar at the bottom of the canvas provides the tools. A tool stays active until another one is selected.
 
 | Tool        | Purpose                                       | Shortcut |
 | ----------- | --------------------------------------------- | -------- |
@@ -21,51 +21,57 @@ The Editor legend summarizes the visual elements and the tools.
 | Connect     | Drag between states to create a transition    | —        |
 | Auto Layout | Automatically rearrange the graph             | `Alt+A`  |
 
+- **Move**: drag a state to a new position. Clicking a state opens its options, see [States](#states).
+- **Add**: click an empty area to create a new state.
+- **Remove**: click a state or a transition to delete it.
+- **Connect**: drag from one state to another to create a transition, see [Creating a Transition](#creating-a-transition).
+- **Auto Layout**: arrange all states and transitions automatically.
+
+The canvas can be moved with every tool: dragging an empty area pans the view. In the **Add** and **Remove** tools the states are not draggable, so there dragging over a state moves the canvas as well.
+
+In addition, the **FSM** menu above the canvas provides **Load FSM** to load a state machine from a `.fsm` file into the editor, as well as another entry for **Auto Layout**.
+
 ## Creating a Transition
 
-Select the **Connect** tool, drag from the source state to the target state, and fill in the requested bits - the input bits and, in Mealy mode, the output bits - using only `0`, `1`, or `-`. The new transition is drawn as an arrow labeled with `input / output` in Mealy mode, or only the input bits in Moore mode.
+Select the **Connect** tool and drag from the source state to the target state. A popup then asks for the transition bits, one box per input bit and, in Mealy mode, one per output bit. Only the characters `0`, `1` and a don't-care value (`-`) are accepted. Use `Tab` and the arrow keys to move between the boxes and `Enter` to apply the transition or `Escape` to cancel it. `Enter` applies the transition only once every box is filled and the transition is valid; otherwise the popup stays open and highlights the missing boxes.
 
 ![Connecting two states with the Connect tool](/screenshots/state-machine/connect.png)
 
-### Rules
+The new transition is drawn as an arrow labeled with `input / output` in Mealy mode, or with only the input bits in Moore mode.
 
-Each input pattern can only be used once per state, because the [State Table](./tables.md) stores exactly one next state per state and input. Drawing a second transition from the same state with the same input is therefore handled in one of three ways:
+### Overlapping Transitions
 
-1. **The targets share one don't-care pattern** (their binary indexes differ in exactly one bit): the editor combines them automatically. While you type, the popup shows an amber note that both targets will share one row (for example `-1`). The State Table then stores a single next state with a don't-care bit, and the editor draws an arrow to each of the combined targets.
-2. **The row is a don't-care row** (all of its next-state cells are `-`, so every next state is allowed): such rows are not drawn in the editor (see [Hidden don't-care transitions](#hidden-dont-care-transitions)). Drawing the transition for exactly this state and input replaces the don't-care row: the State Table then stores the concrete next state, and the row's previous output is replaced by the new one (a short note reports it if the row already had an output).
-3. **The targets do not fit one pattern**: every don't-care pattern would also cover states in between, so the two next states would silently become targets as well. The popup shows which states a pattern would add and does not let you save. The State Table stores one next state per state and input, so it cannot display this configuration - use a don't-care cluster inside the [State Table](./tables.md), or add the states in an order that puts the targets next to each other, because the binary index follows the creation order.
+A state can have only one next state per input. When a transition is drawn for a state and input that already has one, the editor reacts as follows:
 
-This works the same in Mealy and Moore mode. In Moore mode the combined targets must also agree on their output bits; conflicting outputs would make the FSM invalid, so the popup keeps the transition blocked. In Mealy mode the row keeps its own output: an output that already contains don't-cares stays unchanged when the new transition fits it, while a different output blocks the save, because one row carries one output.
+1. **The targets form a possible pattern.** If the binary indexes of the wanted next states can be combined into a single pattern with don't-cares, the editor merges them and marks the pattern as shared in the popup. The State Table then stores one next state with don't-care bits, and the editor draws an arrow to each covered state. In **Moore** mode the popup only merges states that already show the same output, because the output of the merged transition is the output of the next state; otherwise it explains that the outputs differ.
+2. **The existing row has only don't cares as next state.** If the existing next state is all don't-cares, the new transition replaces it with its concrete next state and output.
+3. **The targets do not form one pattern.** Every pattern with don't-cares would also cover states that are not wanted. The popup lists the additional states a pattern would cover and does not allow saving. In this case the targets must be adjusted in the [State Table](./tables.md), or the states must be created in an order that places the wanted targets next to each other, since the binary index follows the creation order.
 
-## State Labels
+The same rules apply in Mealy and Moore mode. In **Moore** mode the output belongs to the state, so all states that are merged into one transition must show the same output. In **Mealy** mode the output belongs to the transition: drawing a transition onto an existing one updates its output, and when several targets are merged, an output bit that differs becomes a don't-care. The popup always shows the output that results from your input.
 
-Each circle shows the **state name**; in Moore mode it additionally shows the state's output bits (`name / output`). The initial state is marked with an incoming arrow, and you can drag the arrow's tail handle onto another state to make that state the initial one. The initial state is optional - if no state is marked as initial, no arrow is drawn.
+## States
 
-Click a state in **Move** or **Add** mode to open its options: you can edit the state's name and color and mark it as the initial state. In Moore mode you can also edit the state's output bits. Press `Enter` to apply the changes or `Escape` to discard them. Names support up to 12 characters, are limited to letters, digits, spaces, `_` and `-`, and must be unique - a duplicate name is rejected and the popup cannot be saved in this case.
+States are represented by circles. Each circle shows the **state name**; in Moore mode it additionally shows the state's output bits in the form `name / output`. The initial state is marked with an incoming arrow whose tail handle can be dragged onto another state to make that state the initial one. The initial state is optional; if no state is marked, no arrow is drawn.
+
+Click a state in **Move** or **Add** mode to open its options. There you can:
+
+- edit the state's **name**,
+- pick a **color**,
+- toggle whether the state is the **initial state**,
+- and, in Moore mode, edit the state's **output bits**.
+
+Press `Enter` to apply the changes or `Escape` to discard them. Names must be unique and follow the same rules as in the [State Table](./tables.md#states); a duplicate name prevents saving.
 
 ![State options popup for editing a state](/screenshots/state-machine/state-options.png)
 
-## Hidden don't-care transitions
+## Hidden Transitions
 
-A transition whose next-state bits are **all** don't-cares allows **every** next state: the input does not matter for the next-state function and the transition is a pure don't-care, which is what makes the minimization work. Such rows are therefore **not drawn** in the editor - otherwise every auto-generated don't-care row (for example after adding a new state) would fill the canvas with an arrow to each state. The input bits may be concrete and do not affect this rule, and in Mealy mode the transition may still carry an output. While at least one such transition exists, an amber **"Hidden don't-care transitions"** warning badge appears next to the legend. These transitions are not lost - they remain in the State Table and are drawn again as soon as they receive a concrete next state.
+The editor does not draw a transition whose next state is left completely open, i.e. a transition whose next-state bits are **all** don't-cares. Such a transition allows every next state, so it carries no information for the drawing and is not shown as an arrow; it only exists in the [State Table](./tables.md). This keeps the canvas readable, because otherwise every state would show an arrow to every other state.
 
-Drawing a transition for exactly the same state and input **replaces** that don't-care row. This is the only case in which a drawn transition may overwrite an existing row; rows that already carry concrete next states can only be extended or combined (see [Creating a Transition](#creating-a-transition)).
+Such a transition becomes visible again as soon as it receives a concrete next state, and drawing a transition for the same state and input replaces it.
 
-![Warning that indicates which transitions are currently hidden](/screenshots/state-machine/hidden-transitions.png)
+## Validation
 
-## Validation of the state machine
-
-The FSM is validated continuously while you work. As soon as it becomes invalid, the Editor is replaced by an **"FSM Invalid"** view. The editor is not synchronized or editable while this view is shown. It displays the precise reason for the invalidity; fix the reported issue in the [State Table](./tables.md) to show the editor again.
-
-The following rules make an FSM invalid:
-
-1. **Every concrete next-state combination must exist.** A concrete next state must point to an existing state. A pattern containing don't-cares is expanded into every possible `0`/`1` combination, and **all** of those combinations must be used by existing state IDs. For example, `1-` expands to `10` and `11`; it is valid only when both states exist. A missing combination, a removed target, or an empty target is invalid.
-2. **All-don't-care next states never lock the editor.** A next state that is **all** don't-cares (`--`) allows every next state and is ignored by the validation. While the number of states is not a power of two, such a pattern also covers indexes that no state uses yet; the [State Table](./tables.md) then shows an amber **"Don't-care next states also cover …"** warning instead of locking the editor.
-3. **Don't care statements as next states can represent multiple target states.** A pattern such as `0-` is valid when every concrete combination it covers exists. This supports NFA-style transitions to multiple states without treating the cluster itself as an error. Such a partial cluster stays visible in the editor (one arrow per covered state); only a next state that is **all** don't-cares is not drawn, see [hidden don't-care transitions](#hidden-dont-care-transitions).
-4. **In Moore mode, all resolved target states must agree on the output.** A transition that resolves to several target states is only valid if those states carry compatible output bits. Conflicting `0` and `1` values make the FSM invalid. Transitions with an all-don't-care next state are excluded, because they do not resolve to a single target.
-
-::: tip
-Every editable cell in the [State Table](./tables.md) can always be toggled freely in the order `0 → 1 → - → 0`. The FSM is re-validated after every change, and the Editor locks only when a rule above is actually broken. Fixing the reported issue unlocks it again.
-:::
+The machine is validated continuously while you work. As soon as it becomes invalid, the Editor is replaced by a notification that states the reason, and it cannot be edited while this notification is shown. Correcting the reported problem in the [State Table](./tables.md) restores the Editor. The validation rules are listed in the [State Table article](./tables.md#validation).
 
 ---

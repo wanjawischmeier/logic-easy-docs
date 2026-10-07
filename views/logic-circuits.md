@@ -78,6 +78,10 @@ Select if whether minimized or canonical function is used to build the circuit.
 
 This selection is synced to all other panels where this change is relevant.
 
+### State Machine Settings
+
+In State Machine projects, the settings additionally provide the **State Encoding** (Binary or One-Hot) and the **Flip-Flop** type (D, JK or RS) that are used to build the circuit.
+
 </details>
 
 ## Download Options
