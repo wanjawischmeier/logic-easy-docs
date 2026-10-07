@@ -41,13 +41,15 @@ The new transition is drawn as an arrow labeled with `input / output` in Mealy m
 
 ### Overlapping Transitions
 
-A state can have only one next state per input. When a transition is drawn for a state and input that already has one, the editor reacts as follows:
+A state has exactly one next state per input, so every state and input pair corresponds to a single row in the [State Table](./tables.md). A transition drawn in the editor always has a concrete next state and never creates don't-cares, see [Hidden Transitions](#hidden-transitions).
 
-1. **The targets form a possible pattern.** If the binary indexes of the wanted next states can be combined into a single pattern with don't-cares, the editor merges them. The State Table then stores one next state with don't-care bits, and the editor draws an arrow to each covered state. In **Moore** mode the editor only merges states that already show the same output, because the output of the merged transition is the output of the next state; otherwise the popup explains that the outputs differ and keeps the transition blocked.
-2. **The existing row has only don't cares as next state.** If the existing next state is all don't-cares, the new transition replaces it with its concrete next state and output.
-3. **The targets do not form one pattern.** Every pattern with don't-cares would also cover states that are not wanted. The popup lists the additional states a pattern would cover and does not allow saving. In this case the targets must be adjusted in the [State Table](./tables.md), or the states must be created in an order that places the wanted targets next to each other, since the binary index follows the creation order.
+If a row already exists for the state and input you draw, one of three things happens:
 
-The same rules apply in Mealy and Moore mode. In **Moore** mode the output belongs to the state, so all states that are merged into one transition must show the same output. In **Mealy** mode the output belongs to the transition: drawing a transition onto an existing one updates its output, and when several targets are merged, an output bit that differs becomes a don't-care. The popup only reports a transition that cannot be saved, together with the reason.
+- **The row is hidden**, because its next state contains don't-cares. The transition you draw replaces it.
+- **The row is visible and leads to the same state.** The next state stays the same; in **Mealy** mode the drawn output updates that row.
+- **The row is visible and leads to a different state.** The popup stays locked and explains that one row holds one next state. Change the row in the [State Table](./tables.md) instead.
+
+In **Moore** mode the output belongs to the state, so the output shown for a transition is the output of the state it leads to.
 
 ## States
 
@@ -66,7 +68,7 @@ Press `Enter` to apply the changes or `Escape` to discard them. Names must be un
 
 ## Hidden Transitions
 
-The editor does not draw a transition whose next state is left completely open, i.e. a transition whose next-state bits are **all** don't-cares. Such a transition allows every next state, so it carries no information for the drawing and is not shown as an arrow; it only exists in the [State Table](./tables.md). This keeps the canvas readable, because otherwise every state would show an arrow to every other state.
+The editor only draws transitions with a single, concrete next state. A next state that contains a don't-care (`-`) stands for several states at once and therefore has no unique target, so the transition is not drawn as an arrow; it only exists in the [State Table](./tables.md).
 
 Such a transition becomes visible again as soon as it receives a concrete next state, and drawing a transition for the same state and input replaces it.
 

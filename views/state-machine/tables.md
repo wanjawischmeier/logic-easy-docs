@@ -46,13 +46,14 @@ Every row represents exactly one combination of a state and an input. Because th
 
 ## Next States
 
-The next-state cells accept the bits `0`, `1` and the don't-care value `-`, and are interpreted as follows:
+A next-state cell holds the bits `0`, `1` and the don't-care value `-`:
 
-- A **fully concrete** pattern points to the state with that binary index.
-- A **partially concrete** pattern (containing don't-cares) describes a group of target states. Replacing the don't-cares with `0` and `1` yields all covered indexes, and every one of them must exist as a state. A pattern with $k$ don't-care bits covers $2^k$ indexes. Whether a group of states can be expressed this way depends on their binary indexes, which are fixed by the creation order.
-- An **all-don't-care** pattern allows every next state. Such rows are not drawn in the [Editor](./editor.md#hidden-transitions), because they hold no information for the drawing.
+- A cell with only `0` and `1` points to the state with that binary index.
+- A `-` stands for both `0` and `1`. A next state with don't-cares therefore covers several states at once, and a pattern with $k$ don't-care bits covers $2^k$ states; every state index it covers must exist.
 
-Clicking an editable cell cycles its value in the order `0 → 1 → - → 0`. Because a state can have only one next state per input, several wanted targets must be expressible as a single partially concrete pattern.
+Click a cell to cycle its value through `0 → 1 → - → 0`. Since a state can have only one next state per input, a row with don't-cares leaves that input undecided between the covered states; the minimization can use this freedom.
+
+The [Editor](./editor.md#hidden-transitions) only draws transitions with a concrete next state, so such a row is not shown there as an arrow. When you draw a transition for the same state and input, it replaces the row with the concrete next state you draw (see [Overlapping Transitions](./editor.md#overlapping-transitions)).
 
 ## Output
 

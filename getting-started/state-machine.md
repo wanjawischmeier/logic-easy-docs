@@ -95,6 +95,12 @@ Besides the FSM-specific panels, the following general panels can be used with a
 - The [LogicCircuits](../views/logic-circuits.md) view is read-only and draws the machine as a circuit.
 - The [Karnaugh-Veitch](../views/karnaugh-veitch.md) view minimizes the machine's next-state functions and output functions over the current-state bits $Z^n$ and the input bits $X^n$. It is available from **View ▸ Minimization** once at least two minimization variables exist.
 
+::: warning The circuit may differ from the drawn automaton
+A `-` leaves a value open on purpose. When the machine is minimized, every `-` may become `0` or `1`: the tool chooses the value that keeps the circuit as small as possible.
+
+The circuit in the [LogicCircuits](../views/logic-circuits.md) panel may therefore differ from the automaton you drew in the [FSM Editor](../views/state-machine/editor.md) or entered in the [State Table](../views/state-machine/tables.md). This is intended, and it is a common and useful approach in computer engineering: every value you entered concretely is preserved, and only the `-` entries are used to simplify the circuit.
+:::
+
 ## Validity
 
 A state machine has to follow a few rules to be unambiguous. The machine is validated continuously while you work, and the rules are listed in the [State Table article](../views/state-machine/tables.md#validation).
