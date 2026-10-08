@@ -29,11 +29,9 @@ The toolbar at the bottom of the canvas provides the tools. A tool stays active 
 
 The canvas can be moved with every tool: dragging an empty area pans the view. In the **Add** and **Remove** tools the states are not draggable, so there dragging over a state moves the canvas as well.
 
-In addition, the **FSM** menu above the canvas provides **Load FSM** to load a state machine from a `.fsm` file into the editor, as well as another entry for **Auto Layout**.
-
 ## Creating a Transition
 
-Select the **Connect** tool and drag from the source state to the target state. A popup then asks for the transition bits, one box per input bit and, in Mealy mode, one per output bit. Only the characters `0`, `1` and a don't-care value (`-`) are accepted. Use `Tab` and the arrow keys to move between the boxes and `Enter` to apply the transition or `Escape` to cancel it. `Enter` applies the transition only once every box is filled and the transition is valid; otherwise the popup stays open and highlights the missing boxes.
+Select the **Connect** tool and drag from the source state to the target state. A popup then asks for the transition bits, one box per input bit and, in Mealy mode, one per output bit. Only the characters `0`, `1` and a don't-care value (`-`) are accepted. Use `Tab` and the arrow keys to move between the boxes and `Enter` to apply the transition or `Escape` to cancel it. `Enter` applies the transition only once every box is filled and the transition is valid; otherwise the popup stays open and highlights the missing boxes. Clicking outside the popup cancels the transition as well.
 
 ![Connecting two states with the Connect tool](/screenshots/state-machine/connect.png)
 
@@ -62,7 +60,7 @@ Click a state in **Move** or **Add** mode to open its options. There you can:
 - toggle whether the state is the **initial state**,
 - and, in Moore mode, edit the state's **output bits**.
 
-Press `Enter` to apply the changes or `Escape` to discard them. Names must be unique and follow the same rules as in the [State Table](./tables.md#states); a duplicate name prevents saving.
+Press `Enter` to apply the changes or `Escape` to discard them. Names must be unique and follow the same rules as in the [State Table](./tables.md#states); a duplicate name prevents saving. Every other way of closing the popup discards the changes as well.
 
 ![State options popup for editing a state](/screenshots/state-machine/state-options.png)
 
