@@ -17,11 +17,11 @@ The State Table shows the state machine as two tables: the states and the transi
 
 The states table lists every state with its **name** and its **binary index**.
 
-| Element          | Description                                                                                                                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**         | Click a state's name to rename it. Names support up to 12 characters; an empty name falls back to `q<index>`, and duplicate names are rejected (case-insensitively) by keeping the previous name. |
-| **Binary index** | The encoded position of the state (for example `0`, `1`, ...).                                                                                                                                    |
-| **Add / Remove** | Add a state with the `+` button (up to 16 states) and remove the highest-index state with the `−` button.                                                                                         |
+| Element          | Description                                                                                                                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**         | Click a state's name to rename it. Names support up to 12 characters; a default name uses the smallest unused `q<number>`, and duplicate names are rejected (case-insensitively) by keeping the previous name. |
+| **Binary index** | The encoded position of the state (for example `0`, `1`, ...).                                                                                                                                                 |
+| **Add / Remove** | Add a state with the `+` button (up to 16 states) and remove the highest-index state with the `−` button.                                                                                                      |
 
 Names are limited to letters, digits, spaces, `_` and `-`; other characters are not accepted.
 
