@@ -60,11 +60,11 @@ The [Editor](./editor.md#hidden-transitions) only draws transitions with a concr
 The output column depends on the model:
 
 - In **Mealy** mode the cell edits the output of the transition itself.
-- In **Moore** mode the output belongs to a state. The cell edits the output of the next state as long as the row resolves to exactly one state. A row that resolves to several states shows their output only when all of them agree; otherwise the machine is invalid (see [Validation](#validation)).
+- In **Moore** mode the output belongs to a state. A row shows the output of every next state it resolves to, and a bit is shown as a don't-care as soon as those states disagree about it. Toggling the cell writes the next value of the cycle `0 → 1 → - → 0` to **all** of them, so a group stays in agreement. A row without a next state has no state whose output could be written; the machine is invalid then, see [Validation](#validation).
 
 ## Validation
 
-The state table is the source of truth for the machine and is checked after every change. While the machine is invalid, the [Editor](./editor.md) is replaced by a notification that states the reason, and it cannot be used again until the machine is corrected.
+The state table is the source of truth for the machine and is checked after every change. While the machine is invalid, the [Editor](./editor.md), the [Karnaugh-Veitch](../karnaugh-veitch.md) view and the [LogicCircuits](../logic-circuits.md) view are replaced by a notification that states the reason, and they cannot be used again until the machine is corrected.
 
 A machine is invalid in the following cases:
 
@@ -72,11 +72,11 @@ A machine is invalid in the following cases:
 2. **In Moore mode, a group of target states has conflicting outputs.** If a next-state pattern resolves to several states, those states must all show exactly the same output bits. Bits that differ make the machine invalid, and a don't-care conflicts with a concrete bit, because a don't-care also stands for the other value.
 
 ::: info
-An all-don't-care next state is an exception: it allows every next state, is never invalid, and does not lock the Editor.
+An all-don't-care next state is an exception: it allows every next state, is never invalid, and does not lock the Editor or the other views.
 :::
 
 ::: tip
-Every editable cell can always be toggled freely in the order `0 → 1 → - → 0`. The machine is re-validated after each change, and the Editor locks only while one of the rules above is actually violated. Correcting the table data unlocks it again.
+Every editable cell can always be toggled freely in the order `0 → 1 → - → 0`. The machine is re-validated after each change, and the Editor and the other views lock only while one of the rules above is actually violated. Correcting the table data unlocks them again.
 :::
 
 ![Transitions table with editable next state and output cells](/screenshots/state-machine/transitions-table.png)

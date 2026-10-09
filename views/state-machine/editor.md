@@ -72,6 +72,6 @@ Such a transition becomes visible again as soon as it receives a concrete next s
 
 ## Validation
 
-The machine is validated continuously while you work. As soon as it becomes invalid, the Editor is replaced by a notification that states the reason, and it cannot be edited while this notification is shown. Correcting the reported problem in the [State Table](./tables.md) restores the Editor. The validation rules are listed in the [State Table article](./tables.md#validation).
+The machine is validated continuously while you work. As soon as it becomes invalid, the Editor, the [Karnaugh-Veitch](../karnaugh-veitch.md) view and the [LogicCircuits](../logic-circuits.md) view are replaced by a notification that states the reason, and they cannot be edited while this notification is shown. Correcting the reported problem in the [State Table](./tables.md) restores them. The validation rules are listed in the [State Table article](./tables.md#validation).
 
 ---

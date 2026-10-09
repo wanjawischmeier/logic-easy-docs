@@ -11,26 +11,32 @@ The Karnaugh-Veitch view shows a KV-Diagram for the selected output variable, to
 
 The KV-Diagram view displays:
 
-| Element | Description |
-|--------|-------------|
-| <img src="/screenshots/karnaugh-veitch/el-output.png" width="120"> | **Output variable**: shown in the top-left corner; identifies which output the diagram represents |
-| <img src="/screenshots/karnaugh-veitch/el-inputs.png" width="200"> | **Input variables**: listed above and to the left of the diagram, with their value combinations along the top row and left column |
-| <img src="/screenshots/karnaugh-veitch/el-cells.png" width="70"> | **Cells**: the output value (`0`, `1`, or `-`) for each combination of input variables |
-| <img src="/screenshots/karnaugh-veitch/el-groups.png" width="200"> | **Groups**: when minimization is active, the grouped cells are highlighted in different colors |
-| <img src="/screenshots/karnaugh-veitch/el-formula.png" width="200"> | **Formula**: the formula for the selected output variable, shown below the diagram |
+| Element                                                             | Description                                                                                                                       |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="/screenshots/karnaugh-veitch/el-output.png" width="120">  | **Output variable**: shown in the top-left corner; identifies which output the diagram represents                                 |
+| <img src="/screenshots/karnaugh-veitch/el-inputs.png" width="200">  | **Input variables**: listed above and to the left of the diagram, with their value combinations along the top row and left column |
+| <img src="/screenshots/karnaugh-veitch/el-cells.png" width="70">    | **Cells**: the output value (`0`, `1`, or `-`) for each combination of input variables                                            |
+| <img src="/screenshots/karnaugh-veitch/el-groups.png" width="200">  | **Groups**: when minimization is active, the grouped cells are highlighted in different colors                                    |
+| <img src="/screenshots/karnaugh-veitch/el-formula.png" width="200"> | **Formula**: the formula for the selected output variable, shown below the diagram                                                |
 
 ::: tip
 ![Side-by-side comparison linking Prime Implicant table bounds to the KV Diagram](/screenshots/quine-mccluskey/prime-implicants/kv_comp.png)
 Grouping colors match those in the [QMC Prime Implicants Table](./quine-mccluskey/prime-implicants.md). For details, see [here](./quine-mccluskey/prime-implicants.html#global-color-coding).
 :::
 
+## While the State Machine Is Invalid
+
+In state machine projects the view mirrors the machine, so it locks together with the [Editor](./state-machine/editor.md): while the machine is invalid, the view is replaced by a notification that states the reason, and correcting the [State Table](./state-machine/tables.md) restores it. An all-don't-care next state never makes the machine invalid.
+
 ## Editing Output Values
 
-You can click into the cells to toggle their values:
+In truth table projects you can click into the cells to toggle their values:
 
 - **0** → **1** → **"-"** (don't care)
 
 Click repeatedly to cycle through these three states.
+
+In state machine projects the cells mirror the machine, so they stay read-only. The machine is edited in the [State Table](./state-machine/tables.md) or the [Editor](./state-machine/editor.md).
 
 ![Clicking output cell to toggle value from 0 to 1 to don't care](/screenshots/karnaugh-veitch/edit-cell.png)
 
@@ -44,13 +50,12 @@ Click the copy icon to the right of the formula to copy it as LaTeX.
 
 ![KV-Diagram settings menu](/screenshots/karnaugh-veitch/settings.png)
 
-| Setting | Description |
-|--------|-------------|
-| **Show formula** | Toggles whether the formula for the selected output variable is shown. Enabled by default. |
-| **Output Variable** | Selects which output variable's KV-Diagram and formula are shown. Only one at a time. |
-| **Function Type** | Calculate a `Disjunctive` or `Conjunctive` function. Synced to all relevant panels. |
-| **Representation** | `Normal` (canonical) or `Minimal`. Normal hides the groups, as no minimization takes place. Synced to all relevant panels. |
-
+| Setting             | Description                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Show formula**    | Toggles whether the formula for the selected output variable is shown. Enabled by default.                                 |
+| **Output Variable** | Selects which output variable's KV-Diagram and formula are shown. Only one at a time.                                      |
+| **Function Type**   | Calculate a `Disjunctive` or `Conjunctive` function. Synced to all relevant panels.                                        |
+| **Representation**  | `Normal` (canonical) or `Minimal`. Normal hides the groups, as no minimization takes place. Synced to all relevant panels. |
 
 ## Download Options
 
@@ -58,9 +63,9 @@ Click the copy icon to the right of the formula to copy it as LaTeX.
 
 Export your KV-Diagram in multiple formats:
 
-| Format | Description |
-|--------|-------------|
-| **Screenshot** | Download a PNG image of the current KV-Diagram view |
-| **LaTeX (.tex)** | Download a `.tex` file for use in LaTeX documents |
+| Format           | Description                                         |
+| ---------------- | --------------------------------------------------- |
+| **Screenshot**   | Download a PNG image of the current KV-Diagram view |
+| **LaTeX (.tex)** | Download a `.tex` file for use in LaTeX documents   |
 
 ---
