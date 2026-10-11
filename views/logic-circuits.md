@@ -28,7 +28,11 @@ If this happens, you have two options. You can either sync the changes to LogicC
 
 ## While the State Machine Is Invalid
 
-In state machine projects the view mirrors the machine, so it locks together with the [Editor](./state-machine/editor.md): while the machine is invalid, the view is replaced by a notification that states the reason, and correcting the [State Table](./state-machine/tables.md) restores it. An all-don't-care next state never makes the machine invalid.
+In state machine projects the view mirrors the machine, so it locks together with the [Editor](./state-machine/editor.md): while the machine is invalid, the view is replaced by a notification that states the reason, and correcting the [State Table](./state-machine/tables.md) restores it. Both the reason and the rows it reports are described in the [State Table article](./state-machine/tables.md#validation).
+
+## While the State Machine Has Hidden Transitions
+
+Rows the Editor does not draw are ignored here: each of them counts as a don't care in all next-state and output bits. While such a row still shows concrete bits, the view explains that those rows have to be set completely to `-` in the state table before the circuit can be built. **Continue anyway** does that for you, so table and circuit describe the same machine.
 
 ## Legend
 

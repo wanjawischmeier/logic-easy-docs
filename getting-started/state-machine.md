@@ -33,7 +33,8 @@ A state machine consists of a finite number of **states** and the **transitions*
 ### Inputs, Outputs and Don't-Cares
 
 - Input and output values are bit patterns. Each bit is `0`, `1`, or a don't-care value, which is displayed as `-`.
-- A don't-care matches both `0` and `1`. For an input it therefore covers several input combinations at once, and as a next state it points to several states at once.
+- A don't-care matches both `0` and `1` and therefore, it covers several input combinations at once.
+  As a next state, it covers several states at once, so the transition has no unique target. Since that is not allowed for our use case, its edge stays hidden, see [Next States](../views/state-machine/tables.md#next-states).
 - A don't-care can also be used for an output bit whose value does not matter. The minimization is then free to choose the value that leads to the simplest circuit, so the machine can be reduced without losing any behavior that is actually needed.
 
 ### Mealy and Moore
@@ -98,7 +99,7 @@ Besides the FSM-specific panels, the following general panels can be used with a
 ::: warning The circuit may differ from the drawn automaton
 A `-` leaves a value open on purpose. When the machine is minimized, every `-` may become `0` or `1`: the tool chooses the value that keeps the circuit as small as possible.
 
-The circuit in the [LogicCircuits](../views/logic-circuits.md) panel may therefore differ from the automaton you drew in the [FSM Editor](../views/state-machine/editor.md) or entered in the [State Table](../views/state-machine/tables.md). This is intended, and it is a common and useful approach in computer engineering: every value you entered concretely is preserved, and only the `-` entries are used to simplify the circuit.
+The circuit in the [LogicCircuits](../views/logic-circuits.md) panel may therefore differ from the automaton you drew in the [FSM Editor](../views/state-machine/editor.md) or entered in the [State Table](../views/state-machine/tables.md). This is intended, and it is a common and useful approach in computer engineering: every concrete value of a drawn transition is preserved, and only the `-` entries are used to simplify the circuit. Hidden rows count as don't cares in all next-state and output bits, so their concrete bits are not preserved; the [Karnaugh-Veitch](../views/karnaugh-veitch.md) and [LogicCircuits](../views/logic-circuits.md) views offer to clear them.
 :::
 
 ## Validity

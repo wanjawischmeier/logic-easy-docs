@@ -36,6 +36,9 @@ features:
     details: View the grouping table with parent/merge paths on hover and the prime implicant table showing which minterms each prime implicant covers.
     link: /views/quine-mccluskey/
   - title: State Machines
+    icon:
+      src: /screenshots/state-machine/icon.png
+      alt: State Machine
     details: Draw Mealy and Moore state machines in the editor, define them in the state table, and minimize their switching functions.
     link: /views/state-machine/tables
   - title: LogicCircuits

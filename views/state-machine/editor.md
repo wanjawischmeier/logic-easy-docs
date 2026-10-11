@@ -68,7 +68,7 @@ Press `Enter` to apply the changes or `Escape` to discard them. Names must be un
 
 The editor only draws transitions with a single, concrete next state. A next state that contains a don't-care (`-`) stands for several states at once and therefore has no unique target, so the transition is not drawn as an arrow; it only exists in the [State Table](./tables.md).
 
-Such a transition becomes visible again as soon as it receives a concrete next state, and drawing a transition for the same state and input replaces it.
+Such a transition becomes visible again as soon as it receives a concrete next state, and drawing a transition for the same state and input replaces it. The legend explains the rule, and a small info badge shows how many hidden rows carry bits that the [Karnaugh-Veitch](../karnaugh-veitch.md) view and the [LogicCircuits](../logic-circuits.md) view ignore, see [State Table](./tables.md#transitions).
 
 ## Validation
 
