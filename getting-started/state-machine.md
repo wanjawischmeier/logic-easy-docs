@@ -94,7 +94,7 @@ The [FSM Editor](../views/state-machine/editor.md) is the visual canvas for draw
 Besides the FSM-specific panels, the following general panels can be used with a State Machine project:
 
 - The [LogicCircuits](../views/logic-circuits.md) view is read-only and draws the machine as a circuit.
-- The [Karnaugh-Veitch](../views/karnaugh-veitch.md) view minimizes the machine's next-state functions and output functions over the current-state bits $Z^n$ and the input bits $X^n$. It is available from **View ▸ Minimization** once at least two minimization variables exist.
+- The [Karnaugh-Veitch](../views/karnaugh-veitch.md) view minimizes the machine's next-state functions and output functions over the current-state bits $Z^n$ and the input bits $X$. It is available from **View ▸ Minimization** once at least two minimization variables exist.
 
 ::: warning The circuit may differ from the drawn automaton
 A `-` leaves a value open on purpose. When the machine is minimized, every `-` may become `0` or `1`: the tool chooses the value that keeps the circuit as small as possible.

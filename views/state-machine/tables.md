@@ -33,16 +33,18 @@ The transition table is only revealed once at least one state exists.
 
 ## Transitions
 
-The transitions table lists every transition with the columns **first state** $Z^n$, **input** $X^n$, **next state** $Z^{(n+1)}$, and **output** $Y^n$. The first-state and input columns are read-only; the next-state and output cells are editable.
+The transitions table lists every transition with the columns **first state** $Z^n$, **input** $X$, **next state** $Z^{(n+1)}$, and **output** $Y$. The first-state and input columns are read-only; the next-state and output cells are editable.
+
+Every bit pattern has one variable per bit: the input columns are $X_{1}$, $X_{0}$, …, the output columns $Y_{1}$, $Y_{0}$, …, and the state columns keep their time step, $Z^{n}$ and $Z^{(n+1)}$.
 
 Every row represents exactly one combination of a state and an input. Because the input column is always fully specified, each state has exactly one row per input combination.
 
-| Column                     | Description                                                                           |
-| -------------------------- | ------------------------------------------------------------------------------------- |
-| **First state** $Z^n$      | The source state of the transition (read-only).                                       |
-| **Input** $X^n$            | The input combination that triggers the transition (read-only).                       |
-| **Next state** $Z^{(n+1)}$ | The target state pattern; editable.                                                   |
-| **Output** $Y^n$           | The output produced by the transition (Mealy) or by the next state (Moore); editable. |
+| Column                     | Description                                                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **First state** $Z^n$      | The source state of the transition (read-only).                                                                             |
+| **Input** $X$              | The input combination that triggers the transition (read-only).                                                             |
+| **Next state** $Z^{(n+1)}$ | The target state pattern; editable.                                                                                         |
+| **Output** $Y$             | The output the machine has after the transition, produced by the transition (Mealy) or by the next state (Moore); editable. |
 
 ## Next States
 
