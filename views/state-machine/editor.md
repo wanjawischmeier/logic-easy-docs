@@ -39,7 +39,7 @@ The new transition is drawn as an arrow labeled with `input / output` in Mealy m
 
 ### Overlapping Transitions
 
-A state and input pair corresponds to one transition row in the [State Table](./tables.md). Its next-state and output bits may contain don't-cares (`-`); in Mealy mode the output belongs to the transition, while in Moore mode it is derived from the target state(s). The editor may display adjacent table rows as one compact transition with a don't-care input bit when their source, next-state pattern and output are identical. This is only a visual editor representation: the table and the FSM state keep the concrete input rows separately, and editing the compact transition updates all referenced rows. A transition with next-state don't-cares has no unique target and is hidden, see [Hidden Transitions](#hidden-transitions); output don't-cares do not hide an otherwise concrete transition.
+A state and input pair corresponds to one transition row in the [State Table](./tables.md). Its next-state and output bits may contain don't-cares (`-`); in Mealy mode the output belongs to the transition, while in Moore mode it belongs to the state itself. The editor may display adjacent table rows as one compact transition with a don't-care input bit when their source, next-state pattern and output are identical. This is only a visual editor representation: the table and the FSM state keep the concrete input rows separately, and editing the compact transition updates all referenced rows. A transition with next-state don't-cares has no unique target and is hidden, see [Hidden Transitions](#hidden-transitions); output don't-cares do not hide an otherwise concrete transition.
 
 If a row already exists for the state and input you draw, one of three things happens:
 
@@ -47,7 +47,7 @@ If a row already exists for the state and input you draw, one of three things ha
 - **The row is visible and leads to the same state.** The next state stays the same; in **Mealy** mode the drawn output updates that row.
 - **The row is visible and leads to a different state.** The popup stays locked and explains that one row holds one next state. Change the row in the [State Table](./tables.md) instead.
 
-In **Moore** mode the output belongs to the state, so the output shown for a transition is the output of the state it leads to.
+In **Moore** mode the output belongs to the state, so a row has no output of its own: the output of every row is the output of the state it starts in.
 
 ## States
 

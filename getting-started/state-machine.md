@@ -42,7 +42,7 @@ A state machine consists of a finite number of **states** and the **transitions*
 The model determines where the output is produced and where it is displayed:
 
 - In **Mealy** mode the output belongs to the transition. It is emitted when the machine takes that transition, and it is displayed on the arrow behind the `/` symbol.
-- In **Moore** mode the output belongs to the state. It is emitted when the machine reaches that state, and it is displayed on the state behind the `/` symbol. A transition therefore has no output of its own; the output shown for a transition is the output of the next state.
+- In **Moore** mode the output belongs to the state. It is emitted when the machine reaches that state, and it is displayed on the state behind the `/` symbol. A transition therefore has no output of its own: the output of a row is always the output of the state it starts in.
 
 ## Project Creation
 
