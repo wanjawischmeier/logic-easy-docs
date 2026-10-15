@@ -17,12 +17,12 @@ The State Table shows the state machine as two tables: the states and the transi
 
 The states table lists every state with its **name** and its **binary index**. In Moore mode it has an additional **output** column, one column per output bit.
 
-| Element                  | Description                                                                                                                                                                                                    |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**                 | Click a state's name to rename it. Names support up to 12 characters; a default name uses the smallest unused `q<number>`, and duplicate names are rejected (case-insensitively) by keeping the previous name. |
-| **Binary index**         | The encoded position of the state (for example `0`, `1`, ...).                                                                                                                                                 |
-| **Output** (Moore only)  | The output of the state itself, with one column per output bit $Y_{1}$, $Y_{0}$, ... Click a bit to cycle it through `0 → 1 → - → 0`, or focus it and press `Space`.                                                    |
-| **Add / Remove**         | Add a state with the `+` button (up to 16 states) and remove the highest-index state with the `−` button.                                                                                                      |
+| Element                 | Description                                                                                                                                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                | Click a state's name to rename it. Names support up to 12 characters; a default name uses the smallest unused `q<number>`, and duplicate names are rejected (case-insensitively) by keeping the previous name. |
+| **Binary index**        | The encoded position of the state (for example `0`, `1`, ...).                                                                                                                                                 |
+| **Output** (Moore only) | The output of the state itself, with one column per output bit $Y_{1}$, $Y_{0}$, ... Click a bit to cycle it through `0 → 1 → - → 0`, or focus it and press `Space`.                                           |
+| **Add / Remove**        | Add a state with the `+` button (up to 16 states) and remove the highest-index state with the `−` button.                                                                                                      |
 
 Names are limited to letters, digits, spaces, `_` and `-`; other characters are not accepted.
 
@@ -42,11 +42,11 @@ Every bit pattern has one variable per bit: the input columns are $X_{1}$, $X_{0
 
 Every row represents exactly one combination of a state and an input. Because the input column is always fully specified, each state has exactly one row per input combination.
 
-| Column                     | Description                                                                                                                 |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **First state** $Z^n$      | The source state of the transition (read-only).                                                                             |
-| **Input** $X$              | The input combination that triggers the transition (read-only).                                                             |
-| **Next state** $Z^{(n+1)}$ | The target state pattern; editable.                                                                                         |
+| Column                      | Description                                                         |
+| --------------------------- | ------------------------------------------------------------------- |
+| **First state** $Z^n$       | The source state of the transition (read-only).                     |
+| **Input** $X$               | The input combination that triggers the transition (read-only).     |
+| **Next state** $Z^{(n+1)}$  | The target state pattern; editable.                                 |
 | **Output** $Y$ (Mealy only) | The output after the transition, produced by the transition itself. |
 
 ## Next States
