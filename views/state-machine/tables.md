@@ -53,7 +53,7 @@ A next-state cell holds the bits `0`, `1` and the don't-care value `-`:
 - A cell with only `0` and `1` points to the state with that binary index, and that state has to exist.
 - A `-` stands for both `0` and `1`. A next state with don't-cares therefore covers several states at once, and a pattern with $k$ don't-care bits covers $2^k$ states. Since that is no unique target, such a row is hidden, see below.
 
-Click a cell to cycle its value through `0 → 1 → - → 0`. Since a state can have only one next state per input, a row with don't-cares leaves that input undecided between the covered states; the minimization can use this freedom.
+Click a cell to cycle its value through `0 → 1 → - → 0`. Since a state and input pair has only one transition row, don't-cares in the next-state bits leave that input undecided between the covered states; the minimization can use this freedom. Output bits may independently be don't-cares as well.
 
 The [Editor](./editor.md#hidden-transitions) only draws transitions with a concrete next state, so such a row is not shown there as an arrow. The whole row is dimmed in the table, so every hidden edge is recognizable at a glance. When you draw a transition for the same state and input, it replaces the row with the concrete next state you draw (see [Overlapping Transitions](./editor.md#overlapping-transitions)).
 

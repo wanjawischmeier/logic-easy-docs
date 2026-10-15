@@ -39,7 +39,7 @@ The new transition is drawn as an arrow labeled with `input / output` in Mealy m
 
 ### Overlapping Transitions
 
-A state has exactly one next state per input, so every state and input pair corresponds to a single row in the [State Table](./tables.md). A transition drawn in the editor always has a concrete next state and never creates don't-cares, see [Hidden Transitions](#hidden-transitions).
+A state and input pair corresponds to one transition row in the [State Table](./tables.md). Its next-state and output bits may contain don't-cares (`-`); in Mealy mode the output belongs to the transition, while in Moore mode it is derived from the target state(s). The editor may display adjacent table rows as one compact transition with a don't-care input bit when their source, next-state pattern and output are identical. This is only a visual editor representation: the table and the FSM state keep the concrete input rows separately, and editing the compact transition updates all referenced rows. A transition with next-state don't-cares has no unique target and is hidden, see [Hidden Transitions](#hidden-transitions); output don't-cares do not hide an otherwise concrete transition.
 
 If a row already exists for the state and input you draw, one of three things happens:
 
