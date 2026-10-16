@@ -47,7 +47,7 @@ Every row represents exactly one combination of a state and an input. Because th
 | **First state** $Z^n$       | The source state of the transition (read-only).                     |
 | **Input** $X$               | The input combination that triggers the transition (read-only).     |
 | **Next state** $Z^{(n+1)}$  | The target state pattern; editable.                                 |
-| **Output** $Y$ (Mealy only) | The output after the transition, produced by the transition itself. |
+| **Output** $Y$ (Mealy only) | The output of this state and input combination.              |
 
 ## Next States
 
@@ -63,12 +63,12 @@ Click a cell to cycle its value through `0 → 1 → - → 0`. In Mealy mode the
 A state and input pair has exactly one row, so a row has to name exactly one next state. A row whose next state contains a `-` does not: it covers several states at once and has no unique target. Such a row is **hidden**:
 
 - The [Editor](./editor.md#hidden-transitions) draws no edge for it, because an edge needs one target state.
-- The [Karnaugh-Veitch](../karnaugh-veitch.md) view and the [LogicCircuits](../logic-circuits.md) view take the row as a don't care in every next-state bit, because its target is open. This is exactly the freedom the minimization uses. In Mealy mode its output bits are open as well, while in Moore mode the output of a row stays the output of its own state.
+- The [Karnaugh-Veitch](../karnaugh-veitch.md) view and the [LogicCircuits](../logic-circuits.md) view take the row as a don't care in every next-state bit, because its target is open. This is exactly the freedom the minimization uses. The output of such a row is not affected: an output belongs to the row itself and never to its target state.
 - The row never makes the machine invalid: leaving an input undecided is allowed (see [Validation](#validation)).
 
 In the table a hidden row is dimmed, so every hidden edge is recognizable at a glance. The Editor shows how many hidden edges the machine has next to its legend, and the [Karnaugh-Veitch](../karnaugh-veitch.md) view shows the same count in its header.
 
-A hidden row counts as fully open only while none of its next-state cells (in Mealy mode, also none of its output cells) shows a `0` or a `1`. While such a bit is still there, the Editor and both views report the row and ask to clear it; **Continue anyway** sets those cells to `-` for you, so all views describe the same machine again.
+A hidden row counts as fully open only while none of its next-state cells shows a `0` or a `1`. While such a bit is still there, the Editor and both views report the row and ask to clear it; **Continue anyway** sets those cells to `-` for you, so all views describe the same machine again.
 
 When you draw a transition for the same state and input, it replaces the row with the concrete next state you draw (see [Overlapping Transitions](./editor.md#overlapping-transitions)).
 
