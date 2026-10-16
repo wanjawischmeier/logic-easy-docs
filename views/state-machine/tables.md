@@ -42,12 +42,12 @@ Every bit pattern has one variable per bit: the input columns are $X_{1}$, $X_{0
 
 Every row represents exactly one combination of a state and an input. Because the input column is always fully specified, each state has exactly one row per input combination.
 
-| Column                      | Description                                                         |
-| --------------------------- | ------------------------------------------------------------------- |
-| **First state** $Z^n$       | The source state of the transition (read-only).                     |
-| **Input** $X$               | The input combination that triggers the transition (read-only).     |
-| **Next state** $Z^{(n+1)}$  | The target state pattern; editable.                                 |
-| **Output** $Y$ (Mealy only) | The output of this state and input combination.              |
+| Column                      | Description                                                     |
+| --------------------------- | --------------------------------------------------------------- |
+| **First state** $Z^n$       | The source state of the transition (read-only).                 |
+| **Input** $X$               | The input combination that triggers the transition (read-only). |
+| **Next state** $Z^{(n+1)}$  | The target state pattern; editable.                             |
+| **Output** $Y$ (Mealy only) | The output of this state and input combination.                 |
 
 ## Next States
 
