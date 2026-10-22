@@ -14,7 +14,7 @@ const customElements = [
 export default defineConfig({
   title: "LogicEasy",
   description: "Documentation for LogicEasy",
-  base: '/logic-easy/docs/',
+  base: './',
   lang: 'en-US',
   ignoreDeadLinks: true,
 
@@ -26,7 +26,7 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'Try It', link: 'https://wanjawischmeier.github.io/logic-easy/' }
+      { text: 'Try It', link: '/redirect-app' }
     ],
 
     sidebar: [

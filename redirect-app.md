@@ -6,11 +6,7 @@ redirect: true
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  // Find "/docs/" position and take everything before it
-  const path = window.location.pathname.substring(0, window.location.pathname.indexOf('docs/'));
-  const targetUrl = window.location.origin + path;
-  window.history.replaceState(null, '', targetUrl); // Keeps previous page in history
-  window.location.href = targetUrl;
+window.location.replace(new URL('../', window.location.href));
 });
 </script>
 
