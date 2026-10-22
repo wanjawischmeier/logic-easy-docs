@@ -45,6 +45,10 @@
   width: 312px;
 }
 
+.VPHomeFeatures .item:nth-child(4) .VPImage {
+  width: 140px;
+}
+
 .VPHomeFeatures .item:nth-child(5) .VPImage {
   width: 240px;
 }
