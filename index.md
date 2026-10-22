@@ -14,7 +14,7 @@ hero:
       link: /getting-started/
     - theme: alt
       text: Try It
-      link: https://wanjawischmeier.github.io/logic-easy/
+      link: /redirect-app
 
 features:
   - title: Truth Tables
@@ -43,7 +43,7 @@ features:
     link: /views/state-machine/tables
   - title: LogicCircuits
     details: Readonly view of the LogicCircuits canvas with automatic rendering of the circuits
-    link: /views/logic-circuits/
+    link: /views/logic-circuits
     icon:
       src: /screenshots/logic-circuits/icon.png
       alt: Quine McCluskey
