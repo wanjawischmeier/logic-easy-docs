@@ -33,18 +33,18 @@
   --vp-c-bg-soft: var(--color-surface-2);
 }
 
-#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(1) > a > article > img {
+.VPHomeFeatures .item:nth-child(1) .VPImage {
   width: 240px;
 }
 
-#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(2) > a > article > img {
+.VPHomeFeatures .item:nth-child(2) .VPImage {
   width: 200px;
 }
 
-#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(3) > a > article > img {
+.VPHomeFeatures .item:nth-child(3) .VPImage {
   width: 312px;
 }
 
-#VPContent > div > div.VPFeatures.VPHomeFeatures > div > div > div:nth-child(5) > a > article > img {
+.VPHomeFeatures .item:nth-child(5) .VPImage {
   width: 240px;
 }
